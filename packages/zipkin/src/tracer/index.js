@@ -106,7 +106,7 @@ class Tracer {
       parentId: new Some(parentId.spanId),
       spanId: randomTraceId(),
       debug: parentId.isDebug(),
-      sampled: parentId.sampled,
+      sampled: new Some(parentId.sampled),
     });
     if (childId.sampled.present === false) {
       childId._sampled = this.sampler.shouldSample(childId);
